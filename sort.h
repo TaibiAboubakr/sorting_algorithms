@@ -15,9 +15,9 @@
  */
 typedef struct listint_s
 {
-    int n;
-    struct listint_s *prev;
-    struct listint_s *next;
+int n;
+struct listint_s *prev;
+struct listint_s *next;
 } listint_t;
 
 
@@ -27,14 +27,10 @@ void swap_numbers(int *a, int *b);
 void bubble_sort(int *array, size_t size);
 void insertion_sort_list(listint_t **list);
 void selection_sort(int *array, size_t size);
-void swap_nodes(listint_t **node_1,listint_t **node_2);
+void swap_nodes(listint_t **node_1, listint_t **node_2);
 void quick_sort(int *array, size_t size);
 void quick_sort_rec(int *array, int low, int high, size_t size);
 int lomuto_part(int *array, int low, int high, size_t size);
-
-
-
-
 
 
 #endif /* SORT_H */
