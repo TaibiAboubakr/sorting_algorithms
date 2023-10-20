@@ -7,30 +7,34 @@
  * Return: no return
  */
 
+#include "sort.h"
+
 void shell_sort(int *array, size_t size)
 {
 	size_t i, j;
 	int temp;
-	size_t h = 1;
+	size_t gap = 1;
 
-	while (h <= size / 3)
+	while (gap < size / 3)
 	{
-		h = (h * 3) - 1;
+		gap = gap * 3 + 1;
 	}
-	while (h > 0)
+
+	while (gap > 0)
 	{
-		for (i = h; i < size; i++)
+		for (i = gap; i < size; i++)
 		{
 			temp = array[i];
 			j = i;
-			while (j > h - 1 && array[j - h] > temp)
+
+			while (j >= gap && array[j - gap] > temp)
 			{
-				array[j] = array[j - h];
-				j = j - h;
+				array[j] = array[j - gap];
+				j -= gap;
 			}
 			array[j] = temp;
 		}
 		print_array(array, size);
-		h = (h - 1) / 3;
+		gap = (gap - 1) / 3;
 	}
 }
