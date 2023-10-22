@@ -9,23 +9,22 @@
  */
 void counting_sort(int *array, size_t size)
 {
-	int k_max = array[0];
+	int k_max = array[0], *count, *array2;
 	size_t i;
-	int *count = (int *)malloc(sizeof(int) * (k_max + 1));
-	int *array2 = (int *)malloc(sizeof(int) * size);
 
-	if (!array || size < 2 || count == NULL || array2 == NULL)
-	{
-		free(count);
-		free(array2);
+	if (!array || size < 2)
 		return;
-	}
-
 	for (i = 0; i < size; i++)
-	{
+		{
 		if (array[i] > k_max)
-			k_max = array[i];
-	}
+			k_max = array[i]; }
+
+	count = (int *)malloc(sizeof(int) * (k_max + 1));
+	array2 = (int *)malloc(sizeof(int) * size);
+	if (!array || size < 2 || count == NULL || array2 == NULL)
+	{	free(count);
+		free(array2);
+		return;	}
 
 	for (i = 0; i <= (size_t)k_max; i++)
 		count[i] = 0;
