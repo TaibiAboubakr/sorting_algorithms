@@ -11,9 +11,11 @@ void counting_sort(int *array, size_t size)
 {
 	int k_max = array[0], *count_arr, *array2;
 	size_t i;
+	int tmp;
 
-	if (!array || size < 2)
+	if (array == NULL || size < 2)
 		return;
+
 	for (i = 0; i < size; i++)
 		{
 		if (array[i] > k_max)
@@ -35,11 +37,13 @@ void counting_sort(int *array, size_t size)
 
 	for (i = 1; i <= (size_t)k_max; i++)
 		count_arr[i] += count_arr[i - 1];
+
 	print_array(count_arr, k_max + 1);
 
-	for (i = size - 1; i > 0; i--)
-	{	count_arr[array[i]] -= 1;
-		array2[count_arr[array[i]]] = array[i];
+	for (i = size - 1; i < size ; i--)
+	{	tmp = array[i];
+		count_arr[tmp] = count_arr[tmp] - 1;
+		array2[count_arr[tmp]] = tmp;
 		}
 
 	for (i = 0; i < size; i++)
