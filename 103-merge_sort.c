@@ -22,17 +22,23 @@ void merge_sort_rec(int *array, int left, int right)
 		printf("[left]: ");
 		for (i = left; i <= mid; i++)
 		{
-			printf("%d, ", array[i]);
+			printf("%d", array[i]);
+			if (i < mid)
+				printf(", ");
 		}
 		printf("\n[right]: ");
 		for (i = mid + 1; i <= right; i++)
 		{
-			printf("%d, ", array[i]);
+			printf("%d", array[i]);
+			if (i < right)
+				printf(", ");
 		}
 		printf("\n[Done]: ");
 		for (i = left; i <= right; i++)
 		{
-			printf("%d, ", array[i]);
+			printf("%d", array[i]);
+			if (i < right)
+				printf(", ");
 		}
 		printf("\n");
 	}
