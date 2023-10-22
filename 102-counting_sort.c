@@ -40,7 +40,7 @@ void counting_sort(int *array, size_t size)
 
 	print_array(count_arr, k_max + 1);
 
-	for (i = 0; i < size ; i++)
+	for (i = size - 1; i < size ; i--)
 	{	tmp = array[i];
 		count_arr[tmp] = count_arr[tmp] - 1;
 		array2[count_arr[tmp]] = tmp;
