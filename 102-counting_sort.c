@@ -9,13 +9,12 @@
  */
 void counting_sort(int *array, size_t size)
 {
-	int k_max = array[0], *count_arr, *array2;
+	int k_max, *count_arr, *array2, tmp;
 	size_t i;
-	int tmp;
 
 	if (array == NULL || size < 2)
 		return;
-
+	k_max = array[0];
 	for (i = 0; i < size; i++)
 		{
 		if (array[i] > k_max)
@@ -40,7 +39,7 @@ void counting_sort(int *array, size_t size)
 
 	print_array(count_arr, k_max + 1);
 
-	for (i = size - 1; i < size ; i--)
+	for (i = size - 1; i < size; i--)
 	{	tmp = array[i];
 		count_arr[tmp] = count_arr[tmp] - 1;
 		array2[count_arr[tmp]] = tmp;
