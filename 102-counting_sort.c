@@ -9,7 +9,7 @@
  */
 void counting_sort(int *array, size_t size)
 {
-	int k_max = array[0], *count, *array2;
+	int k_max = array[0], *count_arr, *array2;
 	size_t i;
 
 	if (!array || size < 2)
@@ -19,28 +19,27 @@ void counting_sort(int *array, size_t size)
 		if (array[i] > k_max)
 			k_max = array[i]; }
 
-	count = (int *)malloc(sizeof(int) * (k_max + 1));
+	count_arr = (int *)malloc(sizeof(int) * (k_max + 1));
 	array2 = (int *)malloc(sizeof(int) * size);
-	if (!array || size < 2 || count == NULL || array2 == NULL)
-	{	free(count);
+
+	if (!count_arr || !array2)
+	{	free(count_arr);
 		free(array2);
 		return;	}
 
 	for (i = 0; i <= (size_t)k_max; i++)
-		count[i] = 0;
+		count_arr[i] = 0;
 
 	for (i = 0; i < size; i++)
-		count[array[i]]++;
+		count_arr[array[i]] += 1;
 
 	for (i = 1; i <= (size_t)k_max; i++)
-		count[i] += count[i - 1];
-	print_array(count, k_max + 1);
+		count_arr[i] += count_arr[i - 1];
+	print_array(count_arr, k_max + 1);
 
 	for (i = size - 1; i < size; i--)
-	{
-		array2[count[array[i]] - 1] = array[i];
-		count[array[i]]--;
-	}
+	{	array2[count_arr[array[i]] - 1] = array[i];
+		count_arr[array[i]]--;	}
 
 	for (i = 0; i < size; i++)
 		array[i] = array2[i];
