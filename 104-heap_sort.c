@@ -32,7 +32,7 @@ void max_heapify(int *array, size_t size, size_t i)
 	if (largest != i)
 	{
 		swap_heap(&array[i], &array[largest]);
-		print_array(arra, size);
+		print_array(array, size);
 		max_heapify(array, size, largest);
 	}
 }

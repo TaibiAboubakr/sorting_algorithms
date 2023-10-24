@@ -44,6 +44,7 @@ void swap_nodes1(listint_t **list, listint_t *node1, listint_t *node2);
 void swap_heap(int *m, int *n);
 void max_heapify(int *array, size_t size, size_t i);
 void heap_sort(int *array, size_t size);
+void radix_sort(int *array, size_t size);
 void bitonic_sort(int *array, size_t size);
 
 #endif /* SORT_H */
