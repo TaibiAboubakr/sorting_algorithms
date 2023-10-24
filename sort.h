@@ -36,6 +36,10 @@ void counting_sort(int *array, size_t size);
 void merge_sort_rec(int *array, int left, int right);
 void sorted_array_merge(int *array, int left, int mid, int right);
 void merge_sort(int *array, size_t size);
-
+void quick_sort_rec_hoare(int *array, int low, int high, size_t size);
+void quick_sort_hoare(int *array, size_t size);
+int hoare_partition(int *array, int low, int high, size_t size);
+void cocktail_sort_list(listint_t **list);
+void swap_nodes1(listint_t **list, listint_t *node1, listint_t *node2);
 
 #endif /* SORT_H */
