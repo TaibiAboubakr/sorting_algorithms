@@ -1,6 +1,6 @@
 #include "sort.h"
 /**
- * swap_head - swaps two elements if needed
+ * swap_heap - swaps two elements if needed
  * @n: pointer 1st element to be swapped
  * @m: pointer to the 2nd element to be swapped
  * Return: no return
